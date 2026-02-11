@@ -22,8 +22,8 @@ const CONFIG = {
   HEO_HERO_TITLE_1: '分享编程',
   HEO_HERO_TITLE_2: '与思维认知',
   HEO_HERO_TITLE_3: 'UONIRA.BLOG',
-  HEO_HERO_TITLE_4: '🔥Passion 🔥',
-  HEO_HERO_TITLE_5: 'CSDIY  🌟，朋友，去开始你的CS学习之旅吧',
+  HEO_HERO_TITLE_4: '🔥 Passion 🔥',
+  HEO_HERO_TITLE_5: 'CSDIY  🌟，路漫漫其修远兮',
   HEO_HERO_TITLE_LINK: 'https://csdiy.wiki/',
   // 英雄区遮罩文字
   HEO_HERO_COVER_TITLE: '随便逛逛',
