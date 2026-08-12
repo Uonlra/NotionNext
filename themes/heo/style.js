@@ -10,19 +10,19 @@ const Style = () => {
   return (
     <style jsx global>{`
       #theme-heo {
-        --heo-color-primary: #4f65f0;
-        --heo-color-primary-hover: #4f46e5;
-        --heo-color-primary-text: #ffffff;
-        --heo-color-accent: #ca8a04;
-        --heo-color-bg: #f7f9fe;
-        --heo-color-bg-dark: #18171d;
-        --heo-color-card: #ffffff;
-        --heo-color-card-dark: #1e1e1e;
-        --heo-color-card-muted: #f1f3f8;
-        --heo-color-border: #4f46e5;
-        --heo-color-border-dark: #ca8a04;
-        --heo-color-text-light: #000000;
-        --heo-color-text-secondary-light: #4b5563;
+        --heo-color-primary: ${CONFIG.HEO_COLOR_PRIMARY};
+        --heo-color-primary-hover: ${CONFIG.HEO_COLOR_PRIMARY_HOVER};
+        --heo-color-primary-text: ${CONFIG.HEO_COLOR_PRIMARY_TEXT};
+        --heo-color-accent: ${CONFIG.HEO_COLOR_ACCENT};
+        --heo-color-bg: ${CONFIG.HEO_COLOR_BG};
+        --heo-color-bg-dark: ${CONFIG.HEO_COLOR_BG_DARK};
+        --heo-color-card: ${CONFIG.HEO_COLOR_CARD};
+        --heo-color-card-dark: ${CONFIG.HEO_COLOR_CARD_DARK};
+        --heo-color-card-muted: ${CONFIG.HEO_COLOR_CARD_MUTED};
+        --heo-color-border: ${CONFIG.HEO_COLOR_BORDER};
+        --heo-color-border-dark: ${CONFIG.HEO_COLOR_BORDER_DARK};
+        --heo-color-text-light: ${CONFIG.HEO_COLOR_TEXT};
+        --heo-color-text-secondary-light: ${CONFIG.HEO_COLOR_TEXT_SECONDARY};
         --heo-color-text-dark: #f3f4f6;
         --heo-color-text-secondary-dark: #d1d5db;
         --heo-color-text: var(--heo-color-text-light);
@@ -92,6 +92,10 @@ const Style = () => {
         border-color: var(--heo-color-border-dark);
       }
 
+      .dark #theme-heo #notion-article pre[class*='language-'] {
+        background: var(--heo-color-card-dark) !important;
+      }
+
       .dark #theme-heo #notion-article .notion-external-block,
       #theme-heo.dark #notion-article .notion-external-block {
         background: var(--heo-color-card-dark) !important;
@@ -111,7 +115,11 @@ const Style = () => {
       }
 
       body {
-        background-color: #f7f9fe;
+        background-color: ${CONFIG.HEO_COLOR_BG};
+      }
+
+      html.dark body {
+        background-color: ${CONFIG.HEO_COLOR_BG_DARK};
       }
 
       // 公告栏中的字体固定白色
@@ -171,4 +179,3 @@ const Style = () => {
 }
 
 export { Style }
-
