@@ -6,19 +6,24 @@ const CONFIG = {
 
   HEO_INFO_CARD_AVATAR_BLUR: true, // 文章详情页个人资料卡头像样式。true：显示为模糊装饰头像；false：与首页头像保持一致
 
-  HEO_COLOR_PRIMARY: '#4f65f0',
-  HEO_COLOR_PRIMARY_HOVER: '#4f46e5',
+  HEO_COLOR_PRIMARY: '#7c8cff'',       // 主按钮
+  HEO_COLOR_PRIMARY_HOVER: '#8178eb', // 主色悬停：稍亮紫色
   HEO_COLOR_PRIMARY_TEXT: '#ffffff',
-  HEO_COLOR_ACCENT: '#c792ea',
-  HEO_COLOR_BG: '#f7f9fe',
-  HEO_COLOR_BG_DARK: '#18171d',
-  HEO_COLOR_CARD: '#ffffff',
-  HEO_COLOR_CARD_DARK: '#21284c',
-  HEO_COLOR_CARD_MUTED: '#f1f3f8',
-  HEO_COLOR_BORDER: '#4f46e5',
-  HEO_COLOR_BORDER_DARK: '#9b8cf2',
-  HEO_COLOR_TEXT: '#111827',
-  HEO_COLOR_TEXT_SECONDARY: '#4b5563',
+  
+  HEO_COLOR_ACCENT: '#9b4265',        // 徽标、辅助高亮：酒红紫
+  
+  HEO_COLOR_BG: '#f7f9fe',            // 保持浅色模式不变
+  HEO_COLOR_BG_DARK: '#161827',       // 深蓝黑页面背景
+  
+  HEO_COLOR_CARD: '#ffffff',          // 保持浅色模式不变
+  HEO_COLOR_CARD_DARK: '#21253a',     // 深蓝灰卡片，区别于页面背景
+  HEO_COLOR_CARD_MUTED: '#f1f3f8',    // 保持浅色模式不变
+  
+  HEO_COLOR_BORDER: '#4f46e5',        // 保持浅色模式不变
+  HEO_COLOR_BORDER_DARK: '#765baf',   // 暗紫 hover 边框
+  
+  HEO_COLOR_TEXT: '#111827',          // 保持浅色模式不变
+  HEO_COLOR_TEXT_SECONDARY: '#4b5563',// 保持浅色模式不变
 
   HEO_SITE_CREATE_TIME: '2021-09-21', // 建站日期，用于计算网站运行的第几天
 
