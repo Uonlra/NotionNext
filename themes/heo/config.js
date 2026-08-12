@@ -58,9 +58,9 @@ const CONFIG = {
 
   // 右侧个人资料卡牌欢迎语，点击可自动切换
   HEO_INFOCARD_GREETINGS: [
-    '你好！我是',
+    '你好！关于我：',
     '🔍 Fronted developer',
-    '🤝 数字孪生技术',
+    '🤝 数字孪生技术方向',
     '🏃 可视化前端开发',
     '🏠 Web3D/ThreeJs',
     '📸 数码科技爱好者',
