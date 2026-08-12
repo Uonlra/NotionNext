@@ -10,7 +10,7 @@ const CONFIG = {
   HEO_COLOR_PRIMARY_HOVER: '#8178eb', // 主色悬停：稍亮紫色
   HEO_COLOR_PRIMARY_TEXT: '#ffffff',
   
-  HEO_COLOR_ACCENT: '#9b4265',        // 徽标、辅助高亮：酒红紫
+  HEO_COLOR_ACCENT: '#69435b',        // 徽标、辅助高亮
   
   HEO_COLOR_BG: '#f7f9fe',            // 保持浅色模式不变
   HEO_COLOR_BG_DARK: '#161827',       // 深蓝黑页面背景
