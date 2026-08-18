@@ -30,7 +30,8 @@ const CONFIG = {
   // 首页顶部通知条滚动内容，如不需要可以留空 []
   HEO_NOTICE_BAR: [
     { title: '欢迎来到我的博客', url: 'https://www.uon1ra.top/' },
-    { title: '查看我的更多信息', url: 'https://www.uon1ra.top/about' }
+    { title: '查看我的更多信息', url: 'https://www.uon1ra.top/about' },
+    { title: 'UTask --个人任务平台 已上线😮😮 ', url: 'https://www.uta4k.top/' },
   ],
 
   // 英雄区左右侧组件颠倒位置
