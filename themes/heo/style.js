@@ -1,12 +1,37 @@
 /* eslint-disable react/no-unknown-property */
 import CONFIG from './config'
+import { siteConfig } from '@/lib/config'
 import { themeConsoleStyle } from '@/lib/themeConsoleStyle'
+import { useEffect } from 'react'
 /**
  * 此处样式只对当前主题生效
  * 此处不支持tailwindCSS的 @apply 语法
  * @returns
  */
 const Style = () => {
+  const bgColor = siteConfig('HEO_COLOR_BG', CONFIG.HEO_COLOR_BG, CONFIG)
+  const bgDarkColor = siteConfig(
+    'HEO_COLOR_BG_DARK',
+    CONFIG.HEO_COLOR_BG_DARK,
+    CONFIG
+  )
+
+  useEffect(() => {
+    const rootStyle = document.documentElement.style
+    const previous = ['--heo-color-bg', '--heo-color-bg-dark'].map(name => ({
+      name,
+      value: rootStyle.getPropertyValue(name),
+      priority: rootStyle.getPropertyPriority(name)
+    }))
+    // Keep previews after closing the palette, but reset them on theme changes.
+    return () => {
+      previous.forEach(({ name, value, priority }) => {
+        if (value) rootStyle.setProperty(name, value, priority)
+        else rootStyle.removeProperty(name)
+      })
+    }
+  }, [])
+
   return (
     <style jsx global>{`
       #theme-heo {
@@ -14,8 +39,8 @@ const Style = () => {
         --heo-color-primary-hover: ${CONFIG.HEO_COLOR_PRIMARY_HOVER};
         --heo-color-primary-text: ${CONFIG.HEO_COLOR_PRIMARY_TEXT};
         --heo-color-accent: ${CONFIG.HEO_COLOR_ACCENT};
-        --heo-color-bg: ${CONFIG.HEO_COLOR_BG};
-        --heo-color-bg-dark: ${CONFIG.HEO_COLOR_BG_DARK};
+        --heo-color-bg: ${bgColor};
+        --heo-color-bg-dark: ${bgDarkColor};
         --heo-color-card: ${CONFIG.HEO_COLOR_CARD};
         --heo-color-card-dark: ${CONFIG.HEO_COLOR_CARD_DARK};
         --heo-color-card-muted: ${CONFIG.HEO_COLOR_CARD_MUTED};
@@ -115,11 +140,11 @@ const Style = () => {
       }
 
       body {
-        background-color: ${CONFIG.HEO_COLOR_BG};
+        background-color: var(--heo-color-bg, ${bgColor});
       }
 
       html.dark body {
-        background-color: ${CONFIG.HEO_COLOR_BG_DARK};
+        background-color: var(--heo-color-bg-dark, ${bgDarkColor});
       }
 
       // 公告栏中的字体固定白色
