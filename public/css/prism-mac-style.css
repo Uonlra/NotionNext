@@ -451,3 +451,45 @@ html.dark .code-side-panel-drawer {
 .code-toolbar .token.keyword { color: #ff7ab2; }
 .code-toolbar .token.function,
 .code-toolbar .token.class-name { color: #ffd479; }
+
+/* 亮色模式：代码窗口 */
+html:not(.dark) .code-toolbar {
+  background: #fdf6e3;
+  border-color: rgba(0, 0, 0, 0.1);
+  box-shadow:
+    0 1px 2px rgba(0, 0, 0, 0.04),
+    0 8px 24px rgba(0, 0, 0, 0.08);
+}
+
+/* 覆盖折叠区域原有的强制深色背景 */
+html:not(.dark) .collapse-panel .code-toolbar {
+  background: #fdf6e3 !important;
+}
+
+/* 代码正文：透出外层浅色背景 */
+html:not(.dark) .code-toolbar pre.notion-code {
+  background: transparent !important;
+  color: #657b83 !important;
+  text-shadow: none !important;
+}
+
+html:not(.dark) .code-toolbar pre.notion-code > code {
+  background: transparent !important;
+  color: inherit !important;
+  text-shadow: none !important;
+}
+
+/* 语言标签和复制按钮 */
+html:not(.dark) .code-toolbar .toolbar-item > button,
+html:not(.dark) .code-toolbar .toolbar-item > span,
+html:not(.dark) .code-toolbar .toolbar-item > a {
+  background: rgba(0, 0, 0, 0.05) !important;
+  border: 1px solid rgba(0, 0, 0, 0.12) !important;
+  color: #586e75 !important;
+  text-shadow: none !important;
+}
+
+html:not(.dark) .code-toolbar .toolbar-item > button:hover {
+  background: rgba(0, 0, 0, 0.1) !important;
+  color: #073642 !important;
+}
