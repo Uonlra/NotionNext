@@ -10,7 +10,7 @@
   margin: 1rem 0;
   border-radius: 14px;
   border: 1px solid rgba(0, 0, 0, 0.1);
-  background: rgba(27, 28, 32, 0.94); /* 浅色模式下默认暗底 */
+  background: rgba(27, 28, 32, 0.94); /* 暗色窗口底色；亮色模式在第 8 节覆盖 */
   box-shadow: 0 1px 2px rgba(0, 0, 0, 0.12), 0 18px 44px rgba(0, 0, 0, 0.18);
   overflow: hidden;
   transition: box-shadow 0.3s ease, transform 0.3s ease;
@@ -427,27 +427,108 @@ html.dark .code-side-panel-drawer {
     display: none;
   }
 }
-/* 7. Prism 代码高亮补丁 (暗底优化) */
-.code-toolbar .token.comment,
-.code-toolbar .token.prolog,
-.code-toolbar .token.doctype,
-.code-toolbar .token.cdata { color: rgba(235, 235, 245, 0.46); }
-.code-toolbar .token.punctuation { color: rgba(235, 235, 245, 0.6); }
-.code-toolbar .token.property,
-.code-toolbar .token.tag,
-.code-toolbar .token.boolean,
-.code-toolbar .token.number,
-.code-toolbar .token.constant,
-.code-toolbar .token.symbol,
-.code-toolbar .token.deleted { color: #7ee787; }
-.code-toolbar .token.selector,
-.code-toolbar .token.attr-name,
-.code-toolbar .token.string,
-.code-toolbar .token.char,
-.code-toolbar .token.builtin,
-.code-toolbar .token.inserted { color: #a5d6ff; }
-.code-toolbar .token.atrule,
-.code-toolbar .token.attr-value,
-.code-toolbar .token.keyword { color: #ff7ab2; }
-.code-toolbar .token.function,
-.code-toolbar .token.class-name { color: #ffd479; }
+/* 7. Prism 代码高亮补丁（仅暗色模式；亮色使用 Prism 浅色主题） */
+html.dark .code-toolbar .token.comment,
+html.dark .code-toolbar .token.prolog,
+html.dark .code-toolbar .token.doctype,
+html.dark .code-toolbar .token.cdata { color: rgba(235, 235, 245, 0.46); }
+html.dark .code-toolbar .token.punctuation { color: rgba(235, 235, 245, 0.6); }
+html.dark .code-toolbar .token.property,
+html.dark .code-toolbar .token.tag,
+html.dark .code-toolbar .token.boolean,
+html.dark .code-toolbar .token.number,
+html.dark .code-toolbar .token.constant,
+html.dark .code-toolbar .token.symbol,
+html.dark .code-toolbar .token.deleted { color: #7ee787; }
+html.dark .code-toolbar .token.selector,
+html.dark .code-toolbar .token.attr-name,
+html.dark .code-toolbar .token.string,
+html.dark .code-toolbar .token.char,
+html.dark .code-toolbar .token.builtin,
+html.dark .code-toolbar .token.inserted { color: #a5d6ff; }
+html.dark .code-toolbar .token.atrule,
+html.dark .code-toolbar .token.attr-value,
+html.dark .code-toolbar .token.keyword { color: #ff7ab2; }
+html.dark .code-toolbar .token.function,
+html.dark .code-toolbar .token.class-name { color: #ffd479; }
+
+/* 8. 亮色模式：与 Solarized Light 配合，覆盖 Mac 窗口的固定暗底 */
+html:not(.dark) .code-toolbar {
+  background: #fdf6e3;
+  border-color: rgba(0, 0, 0, 0.1);
+  box-shadow:
+    0 1px 2px rgba(0, 0, 0, 0.04),
+    0 8px 24px rgba(0, 0, 0, 0.08);
+}
+
+html:not(.dark) .collapse-panel .code-toolbar {
+  background: #fdf6e3 !important;
+}
+
+html:not(.dark) .code-toolbar pre.notion-code {
+  background: transparent !important;
+  color: #657b83 !important;
+  text-shadow: none !important;
+}
+
+html:not(.dark) .code-toolbar pre.notion-code > code {
+  background: transparent !important;
+  color: inherit !important;
+  text-shadow: none !important;
+}
+
+html:not(.dark) .code-toolbar .toolbar-item > button,
+html:not(.dark) .code-toolbar .toolbar-item > span,
+html:not(.dark) .code-toolbar .toolbar-item > a {
+  background: rgba(0, 0, 0, 0.05) !important;
+  border: 1px solid rgba(0, 0, 0, 0.12) !important;
+  color: #586e75 !important;
+  text-shadow: none !important;
+}
+
+html:not(.dark) .code-toolbar .toolbar-item > button:hover {
+  background: rgba(0, 0, 0, 0.1) !important;
+  color: #073642 !important;
+}
+
+/* 侧栏复用当前 Prism 配色，因此窗口和普通文字也随亮色模式切换。 */
+html:not(.dark) .code-side-panel-drawer {
+  background: #fdf6e3;
+  border-left-color: rgba(0, 0, 0, 0.12);
+  box-shadow: -20px 0 48px rgba(0, 0, 0, 0.12);
+  color-scheme: light;
+}
+
+html:not(.dark) .code-side-panel-header {
+  border-bottom-color: rgba(0, 0, 0, 0.1);
+}
+
+html:not(.dark) .code-side-panel-title {
+  color: #586e75;
+}
+
+html:not(.dark) .code-side-panel-meta {
+  color: #657b83;
+}
+
+html:not(.dark) .code-side-panel-code {
+  color: #657b83 !important;
+  text-shadow: none !important;
+}
+
+html:not(.dark) .code-side-panel-code code {
+  text-shadow: none !important;
+}
+
+html:not(.dark) .code-side-panel-copy,
+html:not(.dark) .code-side-panel-close {
+  border-color: rgba(0, 0, 0, 0.12);
+  background: rgba(0, 0, 0, 0.05);
+  color: #586e75;
+}
+
+html:not(.dark) .code-side-panel-copy:hover,
+html:not(.dark) .code-side-panel-close:hover {
+  background: rgba(0, 0, 0, 0.1);
+  color: #073642;
+}
